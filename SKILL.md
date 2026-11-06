@@ -39,9 +39,10 @@ Do not ask Claude's opinion of the video. Measure it. You can't recreate an opin
    `ffmpeg -i ref/X.mp4 -vf "scale=180:-1,tile=10x6" -vsync 0 ref/X_sheet_%03d.jpg` (60 frames per sheet at 30 fps).
 3. Hard cuts: `ffmpeg -i ref/X.mp4 -vf "select='gt(scene,0.35)',showinfo" -f null - 2>&1 | grep pts_time`.
 4. Colour and brightness per second: `ffmpeg -i ref/X.mp4 -vf "fps=1,signalstats,metadata=print" -f null -`.
-5. Transcribe the audio (original language track) with whisper and count words per second.
-6. Write `STYLE.md` with numbers only: words/s, cuts per video, how long camera moves last (frames), saturation, darkest and brightest values, character proportions in head-heights, outline thickness in px at 1080 wide.
-7. Never copy their story, characters or shots. Never put their clips in the final short. The style is studied, the content is ours.
+5. Transcribe the audio (original language track) with whisper, word by word with timestamps, and count words per second.
+6. **Connect the dots:** line the transcript up with the frames, so you know what is on screen when each line is said. Note what the picture does at the hook, at each new beat, at "you see", and at the twist (camera move, light change, cut, prop).
+7. Write `STYLE.md` with numbers only: words/s, cuts per video, how long camera moves last (frames), saturation, darkest and brightest values, character proportions in head-heights, outline thickness in px at 1080 wide.
+8. Never copy their story, characters or shots. Never put their clips in the final short. The style is studied, the content is ours.
 
 No link: use `references/style-2d-in-3d.md` as STYLE.md.
 
