@@ -61,12 +61,16 @@ No link: use `references/style-2d-in-3d.md` as STYLE.md.
 
 ## Step 4: Voice and timing
 - User records: they send a voice file. Generated: use the voice tool they have (ElevenLabs, or macOS `say` as a free fallback for a test).
+- Generated voices usually read at ~2.9 words/s. Speed them to ~3.4-3.7 with `ffmpeg -af atempo=1.18` and trim silence at both ends. Generate one take, not four.
 - One steady narrator, fast, almost no pauses. Loudness about -14 LUFS.
 - Word timings: `whisper-cli -m ggml-base.en.bin -f voice.wav -ojf` (word-level JSON). Fix obvious misreads by hand. Every visual change is timed to a word, landing 0-3 frames before it.
 
 ## Step 5: Build it (HyperFrames + three.js)
 Read the `hyperframes` and `three` skills if they are installed. The video is a web page that moves: HTML, CSS and a three.js canvas, rendered to MP4 frame by frame. It is deterministic and free.
-1. `npx hyperframes init <name>` → 1080x1920, 30 fps, duration = voice length.
+
+**Start from the template, never from zero.** `templates/eiffel-tower/` is a complete, proven short (world, characters, ink, lens blur, light presets, camera, staging). Copy it, then replace the story parts. Its README says what to change and in which order.
+
+1. `npx hyperframes init <name> --example blank --resolution portrait --audio voice.wav --non-interactive` → 1080x1920, 30 fps, duration = voice length. Put three.js in `assets/` (`npm pack three@0.181.2`, copy `three.module.js` + `three.core.js`), no CDN at render time.
 2. **World:** real 3D geometry in three.js. Free CC0 models (Kenney.nl, Poly Pizza) or simple shapes. Textures painted in code (Canvas2D): visible wood grain, dark seams between stones and planks.
 3. **Characters:** flat 2D cards drawn in code (Canvas2D), standing in the 3D world, always facing the camera. Bean-shaped heads, stick limbs, dark plum outline, 6-14 facial expressions, blinks every 0.5-2.3 s. They receive the scene light and cast a real shadow.
 4. **Ink lines:** a post effect that finds edges and depth jumps in the 3D world and draws near-black lines (about 3-5 px at 1080 wide). Characters are excluded, they carry their own outline.
@@ -74,6 +78,14 @@ Read the `hyperframes` and `three` skills if they are installed. The video is a 
 6. **Light follows the story:** warm and bright for the setup, deep night blue for the "You see" explanation.
 7. **Lens blur** on close-ups so the eye goes to the character. Wide shots stay sharp.
 8. No captions unless the user asks.
+
+## Framing rules (learned the hard way)
+- **The vertical frame is narrow.** Visible half-width at distance d = tan(fov/2) × 0.5625 × d. At fov 50 and 6 m that is only ±1.6 m. Two characters in one shot must stand within about 1.2 m of each other, or the camera must back off. Check every two-shot with this formula before snapshotting.
+- **Clear the line of sight.** Lamps, trees and railings placed for the wide shots end up inside close-ups. After the first snapshots, remove or move every prop that blocks a face. A railing or post in the foreground is good only when it covers less than a fifth of the frame.
+- **Tracking shots follow the subject, not a guess.** For a moving train or car, compute the camera from the subject's position every frame.
+- **Lens blur needs a focus point in every shot.** A shot without one must focus on the look-at point, or the whole frame goes soft.
+- **Ink after the grade.** Mix the ink lines in after colour grading, about 4 px at 1080 wide, near-black. Mixed in before the grade they come out thin and grey.
+- **Keep faces inside the safe zone:** x 160–920, y 250–1480 at 1080x1920.
 
 ## Step 6: Look check before rendering anything long
 1. `npx hyperframes snapshot` at 6-10 key moments and LOOK at every PNG. Common first-version bugs: camera inside a wall, prop in front of a face, characters floating, everything too dark or too pastel.
