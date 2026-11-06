@@ -27,29 +27,142 @@
         font-family: "JetBrains Mono", monospace;
       }
     </style>
-  </head>
+  
+<style>
+  .cap, .ov { position:absolute; inset:0; pointer-events:none; }
+  .cap { z-index:20; } .ov { z-index:21; }
+  .cin { position:absolute; left:160px; width:760px; top:1250px; text-align:center; font-family:"Archivo Black", sans-serif; font-size:74px; line-height:1.05; color:#fff;
+         -webkit-text-stroke:11px #241726; paint-order:stroke fill; filter:drop-shadow(0 6px 0 rgba(36,23,38,0.55)) drop-shadow(0 14px 24px rgba(0,0,0,0.35)); letter-spacing:0.5px; }
+  .cin .w { display:inline-block; margin:0 5px; } .cin .kw { font-size:96px; }
+  .year { position:absolute; left:0; width:1080px; top:290px; text-align:center; font-family:"Archivo Black", sans-serif; color:#fff; -webkit-text-stroke:12px #241726; paint-order:stroke fill;
+          filter:drop-shadow(0 8px 0 rgba(36,23,38,0.5)); }
+  .ymask { overflow:hidden; padding:14px 0 10px; margin:-14px 0 -10px; }
+  .yl { font-size:64px; letter-spacing:22px; padding-left:22px; } .yn { font-size:190px; line-height:1; color:#ffd36a; }
+  .badge { position:absolute; left:190px; width:700px; padding:26px 30px 22px; background:#f6efe0; border:7px solid #241726; border-radius:22px; box-shadow:0 10px 0 rgba(36,23,38,0.55);
+           text-align:center; transform-origin:50% 0; }
+  .badge .pin { position:absolute; left:50%; top:-22px; width:34px; height:34px; margin-left:-17px; border-radius:50%; background:#c62f2a; border:6px solid #241726; }
+  .bn { font-family:"Archivo Black", sans-serif; font-size:62px; color:#241726; line-height:1.05; }
+  .br { margin-top:8px; font-family:"Montserrat", sans-serif; font-weight:800; font-size:30px; letter-spacing:7px; color:#c62f2a; }
+  .tons { position:absolute; left:0; width:1080px; top:300px; text-align:center; font-family:"Archivo Black", sans-serif; color:#ffd36a; -webkit-text-stroke:12px #241726; paint-order:stroke fill;
+          filter:drop-shadow(0 8px 0 rgba(36,23,38,0.5)); }
+  .tn { font-size:200px; line-height:1; } .tl2 { font-size:56px; color:#fff; letter-spacing:4px; }
+  .ticket { position:absolute; left:200px; width:680px; top:310px; padding:22px 0; background:#f6efe0; border:7px dashed #241726; border-radius:18px; text-align:center;
+            font-family:"Archivo Black", sans-serif; font-size:64px; color:#241726; box-shadow:0 10px 0 rgba(36,23,38,0.5); }
+  .ticket .arr { color:#c62f2a; margin:0 18px; }
+</style>
+</head>
   <body>
     <div
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="56.89"
+      data-duration="58.46"
       data-width="1080"
       data-height="1920"
     >
       
       <audio
         id="a-roll-audio"
-        src="voice_fast.wav"
+        src="assets/mix3.wav"
         data-start="0"
-        data-duration="56.89"
+        data-duration="58.46"
         data-track-index="2"
         data-volume="1"
       ></audio>
 
-      <div id="world" class="clip" data-start="0" data-duration="56.89" data-track-index="1" data-track-kind="graphics" style="position:absolute;inset:0;">
+      <div id="world" class="clip" data-start="0" data-duration="58.46" data-track-index="1" data-track-kind="graphics" style="position:absolute;inset:0;">
         <canvas id="three-layer" width="1080" height="1920" style="width:1080px;height:1920px;display:block;"></canvas>
       </div>
+      
+      
+      <!-- OVERLAYS -->
+<div id="cap000" class="clip cap" data-start="0.000" data-duration="0.330" data-track-index="5"><div class="cin"><span class="w ">Did</span> <span class="w ">you</span> <span class="w ">know</span></div></div>
+<div id="cap001" class="clip cap" data-start="0.330" data-duration="0.610" data-track-index="5"><div class="cin"><span class="w ">the</span> <span class="w kw">Eiffel</span> <span class="w kw">Tower</span></div></div>
+<div id="cap002" class="clip cap" data-start="0.940" data-duration="0.550" data-track-index="5"><div class="cin"><span class="w ">was</span> <span class="w ">once</span> <span class="w ">sold</span></div></div>
+<div id="cap003" class="clip cap" data-start="1.490" data-duration="0.830" data-track-index="5"><div class="cin"><span class="w ">for</span> <span class="w kw">scrap?</span></div></div>
+<div id="cap004" class="clip cap" data-start="2.320" data-duration="0.120" data-track-index="5"><div class="cin"><span class="w ">By</span> <span class="w ">a</span> <span class="w ">man</span></div></div>
+<div id="cap005" class="clip cap" data-start="2.410" data-duration="0.780" data-track-index="5"><div class="cin"><span class="w ">who</span> <span class="w ">didn't</span> <span class="w ">even</span></div></div>
+<div id="cap006" class="clip cap" data-start="3.190" data-duration="0.870" data-track-index="5"><div class="cin"><span class="w ">own</span> <span class="w ">it!</span></div></div>
+<div id="cap007" class="clip cap" data-start="4.060" data-duration="0.210" data-track-index="5"><div class="cin"><span class="w ">Paris,</span></div></div>
+<div id="cap009" class="clip cap" data-start="5.740" data-duration="0.230" data-track-index="5"><div class="cin"><span class="w ">The</span> <span class="w kw">tower</span> <span class="w ">is</span></div></div>
+<div id="cap010" class="clip cap" data-start="5.970" data-duration="0.590" data-track-index="5"><div class="cin"><span class="w ">rusting,</span></div></div>
+<div id="cap011" class="clip cap" data-start="6.560" data-duration="0.470" data-track-index="5"><div class="cin"><span class="w ">the</span> <span class="w ">paint</span> <span class="w ">is</span></div></div>
+<div id="cap012" class="clip cap" data-start="7.030" data-duration="0.690" data-track-index="5"><div class="cin"><span class="w ">peeling,</span></div></div>
+<div id="cap013" class="clip cap" data-start="7.720" data-duration="0.680" data-track-index="5"><div class="cin"><span class="w ">and</span> <span class="w ">the</span> <span class="w ">newspapers</span></div></div>
+<div id="cap014" class="clip cap" data-start="8.400" data-duration="0.510" data-track-index="5"><div class="cin"><span class="w ">say</span> <span class="w ">it</span> <span class="w ">costs</span></div></div>
+<div id="cap015" class="clip cap" data-start="8.910" data-duration="0.630" data-track-index="5"><div class="cin"><span class="w ">a</span> <span class="w kw">fortune</span> <span class="w ">just</span></div></div>
+<div id="cap016" class="clip cap" data-start="9.540" data-duration="0.280" data-track-index="5"><div class="cin"><span class="w ">to</span> <span class="w ">keep</span> <span class="w ">it</span></div></div>
+<div id="cap017" class="clip cap" data-start="9.820" data-duration="0.940" data-track-index="5"><div class="cin"><span class="w ">standing.</span></div></div>
+<div id="cap019" class="clip cap" data-start="11.210" data-duration="0.780" data-track-index="5"><div class="cin"><span class="w ">that</span> <span class="w ">article</span> <span class="w ">and</span></div></div>
+<div id="cap020" class="clip cap" data-start="11.990" data-duration="1.190" data-track-index="5"><div class="cin"><span class="w ">gets</span> <span class="w ">an</span> <span class="w ">idea.</span></div></div>
+<div id="cap021" class="clip cap" data-start="13.180" data-duration="0.160" data-track-index="5"><div class="cin"><span class="w ">He</span> <span class="w ">prints</span> <span class="w ">fake</span></div></div>
+<div id="cap022" class="clip cap" data-start="13.340" data-duration="0.520" data-track-index="5"><div class="cin"><span class="w ">government</span></div></div>
+<div id="cap023" class="clip cap" data-start="13.860" data-duration="0.760" data-track-index="5"><div class="cin"><span class="w ">letterhead,</span></div></div>
+<div id="cap024" class="clip cap" data-start="14.620" data-duration="0.350" data-track-index="5"><div class="cin"><span class="w ">books</span> <span class="w ">a</span> <span class="w ">suite</span></div></div>
+<div id="cap025" class="clip cap" data-start="14.970" data-duration="0.650" data-track-index="5"><div class="cin"><span class="w ">at</span> <span class="w ">the</span> <span class="w ">fanciest</span></div></div>
+<div id="cap026" class="clip cap" data-start="15.620" data-duration="0.920" data-track-index="5"><div class="cin"><span class="w ">hotel</span> <span class="w ">in</span> <span class="w ">Paris,</span></div></div>
+<div id="cap027" class="clip cap" data-start="16.540" data-duration="0.450" data-track-index="5"><div class="cin"><span class="w ">and</span> <span class="w ">invites</span> <span class="w kw">six</span></div></div>
+<div id="cap028" class="clip cap" data-start="16.990" data-duration="0.810" data-track-index="5"><div class="cin"><span class="w kw">scrap</span> <span class="w ">metal</span> <span class="w ">dealers</span></div></div>
+<div id="cap029" class="clip cap" data-start="17.800" data-duration="0.470" data-track-index="5"><div class="cin"><span class="w ">to</span> <span class="w ">a</span> <span class="w kw">secret</span></div></div>
+<div id="cap030" class="clip cap" data-start="18.270" data-duration="0.910" data-track-index="5"><div class="cin"><span class="w ">meeting.</span></div></div>
+<div id="cap031" class="clip cap" data-start="19.180" data-duration="0.190" data-track-index="5"><div class="cin"><span class="w ">Gentlemen,</span></div></div>
+<div id="cap032" class="clip cap" data-start="19.370" data-duration="0.540" data-track-index="5"><div class="cin"><span class="w ">the</span> <span class="w ">city</span> <span class="w ">can</span></div></div>
+<div id="cap033" class="clip cap" data-start="19.910" data-duration="0.760" data-track-index="5"><div class="cin"><span class="w ">no</span> <span class="w ">longer</span> <span class="w ">afford</span></div></div>
+<div id="cap034" class="clip cap" data-start="20.670" data-duration="0.690" data-track-index="5"><div class="cin"><span class="w ">the</span> <span class="w kw">tower.</span></div></div>
+<div id="cap035" class="clip cap" data-start="21.360" data-duration="0.500" data-track-index="5"><div class="cin"><span class="w ">It</span> <span class="w ">will</span> <span class="w ">be</span></div></div>
+<div id="cap036" class="clip cap" data-start="21.860" data-duration="1.100" data-track-index="5"><div class="cin"><span class="w ">torn</span> <span class="w ">down.</span></div></div>
+<div id="cap038" class="clip cap" data-start="23.920" data-duration="0.860" data-track-index="5"><div class="cin"><span class="w ">iron.</span></div></div>
+<div id="cap039" class="clip cap" data-start="24.780" data-duration="0.200" data-track-index="5"><div class="cin"><span class="w ">And</span> <span class="w ">one</span> <span class="w ">of</span></div></div>
+<div id="cap040" class="clip cap" data-start="24.980" data-duration="0.700" data-track-index="5"><div class="cin"><span class="w ">you</span> <span class="w ">will</span> <span class="w ">buy</span></div></div>
+<div id="cap041" class="clip cap" data-start="25.680" data-duration="0.820" data-track-index="5"><div class="cin"><span class="w ">it.</span></div></div>
+<div id="cap042" class="clip cap" data-start="26.500" data-duration="0.380" data-track-index="5"><div class="cin"><span class="w ">The</span> <span class="w ">dealers</span> <span class="w ">can't</span></div></div>
+<div id="cap043" class="clip cap" data-start="26.880" data-duration="1.470" data-track-index="5"><div class="cin"><span class="w ">believe</span> <span class="w ">their</span> <span class="w kw">luck.</span></div></div>
+<div id="cap044" class="clip cap" data-start="28.350" data-duration="0.470" data-track-index="5"><div class="cin"><span class="w ">One</span> <span class="w ">of</span> <span class="w ">them,</span></div></div>
+<div id="cap046" class="clip cap" data-start="29.470" data-duration="0.480" data-track-index="5"><div class="cin"><span class="w ">wants</span> <span class="w ">it</span> <span class="w ">more</span></div></div>
+<div id="cap047" class="clip cap" data-start="29.950" data-duration="1.050" data-track-index="5"><div class="cin"><span class="w ">than</span> <span class="w ">anyone.</span></div></div>
+<div id="cap048" class="clip cap" data-start="31.000" data-duration="0.300" data-track-index="5"><div class="cin"><span class="w ">But</span> <span class="w kw">Poisson</span> <span class="w ">gets</span></div></div>
+<div id="cap049" class="clip cap" data-start="31.300" data-duration="1.240" data-track-index="5"><div class="cin"><span class="w ">suspicious.</span></div></div>
+<div id="cap050" class="clip cap" data-start="32.540" data-duration="0.120" data-track-index="5"><div class="cin"><span class="w ">Why</span> <span class="w ">is</span> <span class="w ">a</span></div></div>
+<div id="cap051" class="clip cap" data-start="32.570" data-duration="0.770" data-track-index="5"><div class="cin"><span class="w ">government</span> <span class="w ">official</span></div></div>
+<div id="cap052" class="clip cap" data-start="33.340" data-duration="1.060" data-track-index="5"><div class="cin"><span class="w ">so</span> <span class="w ">secretive?</span></div></div>
+<div id="cap053" class="clip cap" data-start="34.400" data-duration="1.040" data-track-index="5"><div class="cin"><span class="w ">Why</span> <span class="w ">the</span> <span class="w kw">rush?</span></div></div>
+<div id="cap054" class="clip cap" data-start="35.440" data-duration="0.400" data-track-index="5"><div class="cin"><span class="w ">So</span> <span class="w kw">Lustig</span> <span class="w ">leans</span></div></div>
+<div id="cap055" class="clip cap" data-start="35.840" data-duration="1.480" data-track-index="5"><div class="cin"><span class="w ">in</span> <span class="w ">and</span> <span class="w ">whispers,</span></div></div>
+<div id="cap056" class="clip cap" data-start="37.320" data-duration="0.120" data-track-index="5"><div class="cin"><span class="w ">You</span> <span class="w ">see,</span></div></div>
+<div id="cap057" class="clip cap" data-start="37.410" data-duration="0.410" data-track-index="5"><div class="cin"><span class="w ">a</span> <span class="w ">man</span> <span class="w ">in</span></div></div>
+<div id="cap058" class="clip cap" data-start="37.820" data-duration="1.100" data-track-index="5"><div class="cin"><span class="w ">my</span> <span class="w ">position</span> <span class="w ">doesn't</span></div></div>
+<div id="cap059" class="clip cap" data-start="38.920" data-duration="1.560" data-track-index="5"><div class="cin"><span class="w ">earn</span> <span class="w ">very</span> <span class="w ">much.</span></div></div>
+<div id="cap060" class="clip cap" data-start="40.480" data-duration="1.100" data-track-index="5"><div class="cin"><span class="w kw">Poisson</span> <span class="w ">relaxes.</span></div></div>
+<div id="cap061" class="clip cap" data-start="41.580" data-duration="0.740" data-track-index="5"><div class="cin"><span class="w ">A</span> <span class="w kw">bribe.</span></div></div>
+<div id="cap062" class="clip cap" data-start="42.320" data-duration="0.190" data-track-index="5"><div class="cin"><span class="w ">Only</span> <span class="w ">a</span> <span class="w ">real</span></div></div>
+<div id="cap063" class="clip cap" data-start="42.510" data-duration="0.820" data-track-index="5"><div class="cin"><span class="w ">official</span> <span class="w ">would</span> <span class="w ">ask</span></div></div>
+<div id="cap064" class="clip cap" data-start="43.330" data-duration="1.050" data-track-index="5"><div class="cin"><span class="w ">for</span> <span class="w ">a</span> <span class="w kw">bribe.</span></div></div>
+<div id="cap065" class="clip cap" data-start="44.380" data-duration="0.160" data-track-index="5"><div class="cin"><span class="w ">He</span> <span class="w ">pays</span> <span class="w ">for</span></div></div>
+<div id="cap066" class="clip cap" data-start="44.540" data-duration="0.640" data-track-index="5"><div class="cin"><span class="w ">the</span> <span class="w kw">tower,</span></div></div>
+<div id="cap067" class="clip cap" data-start="45.180" data-duration="0.580" data-track-index="5"><div class="cin"><span class="w ">he</span> <span class="w ">pays</span> <span class="w ">the</span></div></div>
+<div id="cap068" class="clip cap" data-start="45.760" data-duration="0.640" data-track-index="5"><div class="cin"><span class="w kw">bribe,</span></div></div>
+<div id="cap069" class="clip cap" data-start="46.400" data-duration="0.440" data-track-index="5"><div class="cin"><span class="w ">and</span> <span class="w kw">Lustig</span> <span class="w ">is</span></div></div>
+<div id="cap070" class="clip cap" data-start="46.840" data-duration="0.430" data-track-index="5"><div class="cin"><span class="w ">on</span> <span class="w ">a</span> <span class="w ">train</span></div></div>
+<div id="cap071" class="clip cap" data-start="47.270" data-duration="0.670" data-track-index="5"><div class="cin"><span class="w ">to</span> <span class="w kw">Vienna</span> <span class="w ">with</span></div></div>
+<div id="cap072" class="clip cap" data-start="47.940" data-duration="0.720" data-track-index="5"><div class="cin"><span class="w ">a</span> <span class="w ">suitcase</span> <span class="w ">full</span></div></div>
+<div id="cap073" class="clip cap" data-start="48.660" data-duration="0.720" data-track-index="5"><div class="cin"><span class="w ">of</span> <span class="w kw">cash.</span></div></div>
+<div id="cap074" class="clip cap" data-start="49.380" data-duration="0.500" data-track-index="5"><div class="cin"><span class="w ">Then</span> <span class="w ">he</span> <span class="w ">waits</span></div></div>
+<div id="cap075" class="clip cap" data-start="49.880" data-duration="1.480" data-track-index="5"><div class="cin"><span class="w ">for</span> <span class="w ">the</span> <span class="w kw">police.</span></div></div>
+<div id="cap076" class="clip cap" data-start="51.360" data-duration="1.060" data-track-index="5"><div class="cin"><span class="w ">They</span> <span class="w ">never</span> <span class="w ">come.</span></div></div>
+<div id="cap077" class="clip cap" data-start="52.420" data-duration="0.250" data-track-index="5"><div class="cin"><span class="w kw">Poisson</span> <span class="w ">is</span> <span class="w ">too</span></div></div>
+<div id="cap078" class="clip cap" data-start="52.670" data-duration="0.980" data-track-index="5"><div class="cin"><span class="w kw">humiliated</span> <span class="w ">to</span> <span class="w ">tell</span></div></div>
+<div id="cap079" class="clip cap" data-start="53.650" data-duration="1.070" data-track-index="5"><div class="cin"><span class="w ">anyone.</span></div></div>
+<div id="cap080" class="clip cap" data-start="54.720" data-duration="0.380" data-track-index="5"><div class="cin"><span class="w ">So</span> <span class="w kw">Lustig</span> <span class="w ">goes</span></div></div>
+<div id="cap081" class="clip cap" data-start="55.100" data-duration="0.800" data-track-index="5"><div class="cin"><span class="w ">back</span> <span class="w ">to</span> <span class="w ">Paris</span></div></div>
+<div id="cap082" class="clip cap" data-start="55.900" data-duration="0.550" data-track-index="5"><div class="cin"><span class="w ">and</span> <span class="w ">tries</span> <span class="w ">to</span></div></div>
+<div id="cap083" class="clip cap" data-start="56.450" data-duration="0.750" data-track-index="5"><div class="cin"><span class="w ">sell</span> <span class="w ">the</span> <span class="w kw">Eiffel</span></div></div>
+<div id="cap084" class="clip cap" data-start="57.200" data-duration="1.260" data-track-index="5"><div class="cin"><span class="w kw">Tower</span> <span class="w kw">again.</span></div></div>
+<div id="year" class="clip ov" data-start="4.090" data-duration="2.260" data-track-index="6"><div class="year"><div class="ymask"><div class="yl">PARIS</div></div><div class="ymask"><div class="yn">1925</div></div></div></div>
+<div id="bLustig" class="clip ov" data-start="10.740" data-duration="1.550" data-track-index="6"><div class="badge" style="top:300px"><div class="pin"></div><div class="bn">VICTOR LUSTIG</div><div class="br">CON MAN</div></div></div>
+<div id="bPoisson" class="clip ov" data-start="28.800" data-duration="2.500" data-track-index="6"><div class="badge" style="top:300px"><div class="pin"></div><div class="bn">ANDRÉ POISSON</div><div class="br">SCRAP METAL DEALER</div></div></div>
+<div id="tons" class="clip ov" data-start="22.990" data-duration="1.900" data-track-index="6"><div class="tons"><div class="tn">7,000</div><div class="tl2">TONS OF IRON</div></div></div>
+<div id="vienna" class="clip ov" data-start="47.310" data-duration="2.000" data-track-index="6"><div class="ticket"><span class="from">PARIS</span><span class="arr">→</span><span class="to">VIENNA</span></div></div>
+      <!-- /OVERLAYS -->
       <!--
         Add your clips here. Example:
         <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
@@ -61,8 +174,96 @@
 
     <script>
       const tl = gsap.timeline({ paused: true, onUpdate: () => { if (window.__renderAt) window.__renderAt(tl.time()); } });
-      tl.to({ v: 0 }, { v: 1, duration: 56.89, ease: "none" }, 0);
+      tl.to({ v: 0 }, { v: 1, duration: 58.46, ease: "none" }, 0);
       // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
+                  // OVTWEENS
+      tl.fromTo("#cap000 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},0.000);
+      tl.fromTo("#cap001 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},0.330);
+      tl.fromTo("#cap002 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},0.940);
+      tl.fromTo("#cap003 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},1.490);
+      tl.fromTo("#cap004 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},2.320);
+      tl.fromTo("#cap005 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},2.410);
+      tl.fromTo("#cap006 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},3.190);
+      tl.fromTo("#cap007 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},4.060);
+      tl.fromTo("#cap009 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},5.740);
+      tl.fromTo("#cap010 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},5.970);
+      tl.fromTo("#cap011 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},6.560);
+      tl.fromTo("#cap012 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},7.030);
+      tl.fromTo("#cap013 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},7.720);
+      tl.fromTo("#cap014 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},8.400);
+      tl.fromTo("#cap015 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},8.910);
+      tl.fromTo("#cap016 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},9.540);
+      tl.fromTo("#cap017 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},9.820);
+      tl.fromTo("#cap019 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},11.210);
+      tl.fromTo("#cap020 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},11.990);
+      tl.fromTo("#cap021 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},13.180);
+      tl.fromTo("#cap022 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},13.340);
+      tl.fromTo("#cap023 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},13.860);
+      tl.fromTo("#cap024 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},14.620);
+      tl.fromTo("#cap025 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},14.970);
+      tl.fromTo("#cap026 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},15.620);
+      tl.fromTo("#cap027 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},16.540);
+      tl.fromTo("#cap028 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},16.990);
+      tl.fromTo("#cap029 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},17.800);
+      tl.fromTo("#cap030 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},18.270);
+      tl.fromTo("#cap031 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},19.180);
+      tl.fromTo("#cap032 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},19.370);
+      tl.fromTo("#cap033 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},19.910);
+      tl.fromTo("#cap034 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},20.670);
+      tl.fromTo("#cap035 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},21.360);
+      tl.fromTo("#cap036 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},21.860);
+      tl.fromTo("#cap038 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},23.920);
+      tl.fromTo("#cap039 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},24.780);
+      tl.fromTo("#cap040 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},24.980);
+      tl.fromTo("#cap041 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},25.680);
+      tl.fromTo("#cap042 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},26.500);
+      tl.fromTo("#cap043 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},26.880);
+      tl.fromTo("#cap044 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},28.350);
+      tl.fromTo("#cap046 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},29.470);
+      tl.fromTo("#cap047 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},29.950);
+      tl.fromTo("#cap048 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},31.000);
+      tl.fromTo("#cap049 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},31.300);
+      tl.fromTo("#cap050 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},32.540);
+      tl.fromTo("#cap051 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},32.570);
+      tl.fromTo("#cap052 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},33.340);
+      tl.fromTo("#cap053 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},34.400);
+      tl.fromTo("#cap054 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},35.440);
+      tl.fromTo("#cap055 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},35.840);
+      tl.fromTo("#cap056 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},37.320);
+      tl.fromTo("#cap057 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},37.410);
+      tl.fromTo("#cap058 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},37.820);
+      tl.fromTo("#cap059 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},38.920);
+      tl.fromTo("#cap060 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},40.480);
+      tl.fromTo("#cap061 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},41.580);
+      tl.fromTo("#cap062 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},42.320);
+      tl.fromTo("#cap063 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},42.510);
+      tl.fromTo("#cap064 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},43.330);
+      tl.fromTo("#cap065 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},44.380);
+      tl.fromTo("#cap066 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},44.540);
+      tl.fromTo("#cap067 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},45.180);
+      tl.fromTo("#cap068 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},45.760);
+      tl.fromTo("#cap069 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},46.400);
+      tl.fromTo("#cap070 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},46.840);
+      tl.fromTo("#cap071 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},47.270);
+      tl.fromTo("#cap072 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},47.940);
+      tl.fromTo("#cap073 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},48.660);
+      tl.fromTo("#cap074 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},49.380);
+      tl.fromTo("#cap075 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},49.880);
+      tl.fromTo("#cap076 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},51.360);
+      tl.fromTo("#cap077 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},52.420);
+      tl.fromTo("#cap078 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},52.670);
+      tl.fromTo("#cap079 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},53.650);
+      tl.fromTo("#cap080 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},54.720);
+      tl.fromTo("#cap081 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},55.100);
+      tl.fromTo("#cap082 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},55.900);
+      tl.fromTo("#cap083 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},56.450);
+      tl.fromTo("#cap084 .cin",{y:22,opacity:0},{y:0,opacity:1,duration:0.13,ease:"power2.out",immediateRender:false},57.200);
+      tl.fromTo("#year .yl",{yPercent:150},{yPercent:0,duration:0.45,ease:"expo.out",immediateRender:false},4.090); tl.fromTo("#year .yn",{yPercent:150},{yPercent:0,duration:0.5,ease:"expo.out",immediateRender:false},4.260); tl.to("#year .year",{y:-30,opacity:0,duration:0.25,ease:"power2.in"},6.130);
+      tl.fromTo("#bLustig .badge",{scale:0.55,rotation:-9,opacity:0},{scale:1,rotation:-3,opacity:1,duration:0.42,ease:"back.out(2.2)",immediateRender:false},10.740); tl.to("#bLustig .badge",{y:-24,opacity:0,duration:0.22,ease:"power2.in"},12.050);
+      tl.fromTo("#bPoisson .badge",{scale:0.55,rotation:-9,opacity:0},{scale:1,rotation:-3,opacity:1,duration:0.42,ease:"back.out(2.2)",immediateRender:false},28.800); tl.to("#bPoisson .badge",{y:-24,opacity:0,duration:0.22,ease:"power2.in"},31.060);
+      tl.fromTo("#tons .tons",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.35,ease:"back.out(2.6)",immediateRender:false},22.990); tl.to("#tons .tons",{opacity:0,y:-20,duration:0.2},24.660);
+      tl.fromTo("#vienna .ticket",{x:-120,opacity:0,rotation:-6},{x:0,opacity:1,rotation:-3,duration:0.45,ease:"expo.out",immediateRender:false},47.310); tl.to("#vienna .ticket",{x:120,opacity:0,duration:0.25,ease:"power2.in"},49.060);
+      // /OVTWEENS
       window.__timelines["main"] = tl;
     </script>
     <script type="module" src="assets/scene.js"></script>

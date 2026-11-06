@@ -1,7 +1,10 @@
 // The Man Who Sold the Eiffel Tower — 2D cards in a 3D toon world (three.js in HyperFrames)
 import * as THREE from './three.module.js';
 
-const W = 1080, H = 1920, FPS = 30, END = 56.89;
+const W = 1080, H = 1920, FPS = 30, END = 56.89, END_NEW = 58.46;
+// new voice time → authored (old) time, piecewise linear between sentence anchors
+const WARP = [[0.0, 0.0], [2.4, 2.0], [4.14, 4.02], [5.82, 5.64], [6.64, 6.31], [7.8, 7.62], [10.84, 10.74], [13.26, 13.06], [14.7, 14.36], [16.05, 15.93], [16.62, 16.48], [19.26, 19.28], [21.44, 21.58], [23.04, 22.82], [24.86, 24.64], [26.58, 25.88], [28.43, 27.9], [28.9, 28.35], [29.55, 28.96], [31.08, 30.46], [32.62, 31.94], [34.48, 33.72], [35.52, 34.72], [37.4, 36.46], [40.56, 39.42], [41.66, 40.54], [42.4, 41.22], [44.46, 43.36], [45.26, 44.09], [46.48, 45.34], [49.46, 48.4], [51.44, 49.96], [52.5, 51.02], [54.8, 53.06], [55.6, 53.93], [58.46, 56.89]];
+function toOld(tn) { if (tn <= 0) return 0; for (let i = 0; i < WARP.length - 1; i++) { const [a0, b0] = WARP[i], [a1, b1] = WARP[i + 1]; if (tn <= a1) return b0 + (b1 - b0) * (tn - a0) / (a1 - a0); } return WARP[WARP.length - 1][1]; }
 const S = H / 1920; // pixel scale
 
 // ---------- seeded random ----------
@@ -542,6 +545,19 @@ const winCard = (() => {
   const m = new THREE.Mesh(new THREE.PlaneGeometry(1.38, 1.55), new THREE.MeshBasicMaterial({ map: t }));
   m.position.set(-21.06, 2.52, 1.415); m.layers.set(1); m.userData.mask = new THREE.MeshBasicMaterial({ color: 0 }); trainGroup.add(m); fxList.push(m); return m;
 })();
+const tagTex = (txt, size) => { const c = cv(640, 380), x = c.getContext('2d');
+  x.translate(320, 200); x.fillStyle = '#c62f2a'; x.strokeStyle = PLUM; x.lineWidth = 14;
+  x.beginPath(); x.moveTo(-280, -120); x.lineTo(240, -120); x.lineTo(300, 0); x.lineTo(240, 120); x.lineTo(-280, 120); x.closePath(); x.fill(); x.stroke();
+  x.fillStyle = '#f6efe0'; x.beginPath(); x.arc(205, 0, 22, 0, 7); x.fill(); x.stroke();
+  x.strokeStyle = 'rgba(255,255,255,0.35)'; x.lineWidth = 6; x.strokeRect(-258, -98, 430, 196);
+  x.fillStyle = '#fff6e6'; x.font = `900 ${size}px Impact, "Arial Black", sans-serif`; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.lineWidth = 12; x.strokeStyle = PLUM; x.strokeText(txt, -40, 6); x.fillText(txt, -40, 6);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; };
+const tagSold = tagTex('SOLD!', 170), tagForSale = tagTex('FOR SALE', 118);
+const tagMesh = new THREE.Mesh(new THREE.PlaneGeometry(15, 8.9), new THREE.MeshBasicMaterial({ map: tagSold, alphaTest: 0.4, side: THREE.DoubleSide }));
+tagMesh.geometry.translate(0, -4.0, 0); tagMesh.position.set(0, 31, -120.2); tagMesh.layers.set(1); tagMesh.userData.mask = new THREE.MeshBasicMaterial({ map: tagSold, alphaTest: 0.4, color: 0, side: THREE.DoubleSide }); scene.add(tagMesh); fxList.push(tagMesh);
+const tagRope = cyl(0.1, 0.1, 4, mats.ink, 0, 33.4, -120.3, 6); tagRope.visible = false;
+
 // ---------- lighting ----------
 const sun = new THREE.DirectionalLight(0xffffff, 3); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
 const sc = sun.shadow.camera; sc.left = -28; sc.right = 28; sc.top = 28; sc.bottom = -28; sc.near = 1; sc.far = 260;
@@ -639,9 +655,9 @@ function mouthAt(t, spans) { for (const [a, b] of spans) if (t >= a && t <= b) r
 const K = [];
 function key(t, p, l, fov = 40, roll = 0, cut = false) { K.push({ t, p: V(...p), l: V(...l), fov, roll, cut }); }
 // S1 hook — river, tower behind
-key(0, [0.15, 1.05, -40.7], [0.1, 4.6, -60], 56, 0, true);
-key(1.5, [0.15, 1.08, -41.2], [0.15, 4.5, -60], 55);
-key(1.55, [0.15, 1.08, -41.2], [0.15, 4.5, -60], 55);
+key(0, [7.5, 9.0, -76], [0, 19.5, -116], 46, 0.03, true);
+key(1.98, [3.4, 14.8, -95], [0, 20, -116], 40, 0.06);
+key(2.0, [0.15, 1.08, -41.0], [0.15, 4.5, -60], 55, 0, true);
 key(3.94, [0.2, 1.1, -42.0], [0.2, 4.0, -60], 50, 0.02);
 // S2 Paris 1925 wide → tower rust → follow flake → café
 key(3.95, [0, 18, 64], [0, 30, -120], 44, 0, true);
@@ -731,9 +747,9 @@ function stage(t) {
     for (const k in ROW) if (!skip.includes(k)) st[k] = { p: [12.45, H0, ROW[k]], ...(exprFn ? exprFn(k) : { expr: 'neutral' }) };
     Po({ p: [12.45, H0, 1.8], ...(exprFn ? exprFn('poisson') : { expr: 'neutral' }) });
   };
-  if (t < T.flash) { // hook
-    L({ p: [-0.5, 0, -46.6], expr: t < 1.55 ? 'smug' : 'sly', pose: t < 1.4 ? 'paper' : 'present' });
-    Po({ p: [0.8, 0, -46.3], expr: t < 2.2 ? (t < 1.4 ? 'wow' : 'grin') : 'embarrassed', pose: t < 1.4 ? 'rub' : (t < 2.2 ? 'paper' : 'hide') });
+  if (t < T.flash) { // hook: SOLD tag on the tower, then the deal
+    L({ p: [-0.5, 0, -46.6], expr: t < 3.0 ? 'sly' : 'wink', pose: 'paper' });
+    Po({ p: [0.8, 0, -46.3], expr: t < 3.0 ? 'happy' : 'grin', pose: 'give', flip: true });
   } else if (t < 10.7) {
     st.d1 = { p: [-6, 0, 30 - (t - 4) * 1.2], walk: 9, expr: 'neutral' }; st.d3 = { p: [5, 0, 18 + (t - 4) * 1.1], walk: 9, expr: 'neutral' };
     L({ p: [-10.6, SW + 0.3, 19.9], sit: 1, pose: 'newsUp', expr: 'neutral' });
@@ -788,12 +804,13 @@ function fxAt(t, cam) {
   clouds.forEach(c => { c.visible = t < 36.6 || t > 53.0; c.quaternion.copy(cam.quaternion); });
   // moon at night
   if (t > 36.5 && t < 53.0) { FX.moon.visible = true; const d = new THREE.Vector3(); cam.getWorldDirection(d); FX.moon.position.copy(cam.position).add(d.multiplyScalar(300)).add(V(60, 110, 0)); face(FX.moon); }
-  if (t > T.idea - 0.05 && t < 13.0) { FX.bulb.visible = true; FX.bulb.position.set(-10.55, 2.45, 19.95); face(FX.bulb); FX.bulb.scale.setScalar(pop(T.idea)); }
+  if (t > T.idea - 0.05 && t < 13.0) { FX.bulb.visible = true; FX.bulb.position.set(-10.22, 2.16, 20.0); face(FX.bulb); FX.bulb.scale.setScalar(pop(T.idea) * 0.5); }
   if (t > 6.6 && t < 9.9) { FX.flake.visible = true; FX.flake.position.copy(flakePos(t)); face(FX.flake); FX.flake.rotateZ(t * 4); }
   if (t > T.hotel && t < 16.4) { FX.spark.visible = true; FX.spark.position.set(14.6, 18.6, 1.0); face(FX.spark); FX.spark.scale.setScalar(pop(T.hotel) * 3.5); FX.spark.rotateZ(t * 2); }
   if (t > 26.2 && t < 28.5) { FX.spark.visible = true; FX.spark.position.set(12.35, 2.95, 3.0); face(FX.spark); FX.spark.scale.setScalar(pop(26.2) * 0.8); FX.spark2.visible = true; FX.spark2.position.set(12.35, 2.9, 1.8); face(FX.spark2); FX.spark2.scale.setScalar(pop(26.5)); }
   if (t > T.why && t < 34.7) { FX.q.visible = true; FX.q.position.set(12.4, 3.1, 1.85); face(FX.q); FX.q.scale.setScalar(pop(T.why) * (1 + Math.sin(t * 6) * 0.04)); }
   if (t > T.cash - 0.1 && t < 48.4) { flashMoney.forEach((m, i) => { m.visible = true; const u = (t - T.cash) * 1.5 + i * 0.13; m.position.set(trainGroup.position.x - 21.06 + 0.5 - u * 1.6 + i * 0.22, 3.0 + u * 0.8 + Math.sin(i * 2 + t * 6) * 0.15, 1.9); face(m); m.rotateZ(t * 3 + i); }); }
+  if (t < T.flash || t > 53.0) { tagMesh.visible = true; tagRope.visible = true; tagMesh.material.map = t > 53.0 ? tagForSale : tagSold; tagMesh.rotation.z = Math.sin(t * 2.2) * 0.05; tagMesh.rotation.y = Math.sin(t * 1.3) * 0.12; } else tagRope.visible = false;
   if (t >= 45.34 && t < 48.4) { winCard.visible = true; }
   if (t > 49.9 && t < 51.0) { FX.cat.visible = true; FX.cat.position.set(TRAIN.x + 76 - (t - 49.9) * 3.2, 1.25, 6.2); face(FX.cat); }
   if (t > T.again - 0.05) { FX.spark2.visible = true; FX.spark2.position.set(-0.05, 2.0, -46.4); face(FX.spark2); FX.spark2.scale.setScalar(pop(T.again) * 0.8); }
@@ -802,6 +819,7 @@ function fxAt(t, cam) {
 // focus & DOF per time
 function dofAt(t) {
   const W2 = (x, y, z) => V(x, y, z);
+  if (t < 2.0) return [W2(0, 20, -116), 0];
   if (t < T.flash) return [W2(0.15, 1.6, -46.4), 13];
   if (t < 9.85) return [W2(0, 0, -200), 0];
   if (t < 13.0) return [W2(-10.6, 1.5, 19.9), 13];
@@ -827,7 +845,7 @@ function dofAt(t) {
 // ---------- render ----------
 const tmpDir = new THREE.Vector3();
 function renderAt(time) {
-  const t = Math.min(Math.max(time, 0), END - 1e-3);
+  const t = Math.min(toOld(Math.min(Math.max(time, 0), END_NEW - 1e-3)), END - 1e-3);
   const L = lightAt(t);
   // camera
   const c = camAt(t); camera.position.copy(c.p); camera.fov = c.fov; camera.updateProjectionMatrix(); camera.up.set(Math.sin(c.roll), Math.cos(c.roll), 0); camera.lookAt(c.l); camera.updateMatrixWorld();

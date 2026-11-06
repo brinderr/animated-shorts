@@ -77,7 +77,9 @@ Read the `hyperframes` and `three` skills if they are installed. The video is a 
 5. **Camera:** almost never cuts. It glides to the next moment over 18-40 frames (slow in, slow out) and slowly pushes in during holds. Small shake on impacts that decays in 7 frames.
 6. **Light follows the story:** warm and bright for the setup, deep night blue for the "You see" explanation.
 7. **Lens blur** on close-ups so the eye goes to the character. Wide shots stay sharp.
-8. No captions unless the user asks.
+8. **On-screen text (default on, the user can switch it off):** captions in chunks of 1-3 words (white, thick dark outline, no box, key words bigger, inside the safe zone around y 1250), a big year/place card when the story names one ("PARIS 1925"), a name badge the first time each character is named ("VICTOR LUSTIG · CON MAN"), big numbers when the narrator says one ("7,000 TONS"), and a route ticket for travel ("PARIS → VIENNA"). Generate them from the word timings with `templates/scripts/overlays.py`. Skip a caption chunk when a badge or card already shows the same words.
+9. **Hook in the picture too:** the first frame must show the paradox, not just say it. The Eiffel short opens on a giant SOLD! tag hanging on the tower and ends on a FOR SALE tag (callback).
+10. **Sound effects stay under the voice.** Measure each SFX (max momentary loudness) and set it about 12 dB below the voice's loudest moments. ElevenLabs effects come out at wildly different levels (from -50 to -3 LUFS), never use one fixed gain.
 
 ## Framing rules (learned the hard way)
 - **The vertical frame is narrow.** Visible half-width at distance d = tan(fov/2) × 0.5625 × d. At fov 50 and 6 m that is only ±1.6 m. Two characters in one shot must stand within about 1.2 m of each other, or the camera must back off. Check every two-shot with this formula before snapshotting.
