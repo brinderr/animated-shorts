@@ -60,7 +60,9 @@ No link: use `references/style-2d-in-3d.md` as STYLE.md.
 5. **Virality check** before showing the script. Score the hook 1-10 on: paradox in sentence 1, concrete nouns, stakes, can be drawn in one frame, under 16 words, curiosity gap. Rewrite until every score is 7+. Show the user the hook score table and the script, and wait for "go".
 
 ## Step 4: Voice and timing
-- User records: they send a voice file. Generated: use the voice tool they have (ElevenLabs, or macOS `say` as a free fallback for a test).
+- **Default for beginners (no API keys):** show the final script as one plain block and say: "Open elevenlabs.io (the free plan is enough), paste this, pick a voice, click Generate, download the file and drag it in here." Wait for the file.
+- If an ElevenLabs connector or API key is already set up, generate it yourself instead. If the user prefers, they record it on their phone and send the file.
+- Never ask the user to paste an API key into the chat.
 - Generated voices usually read at ~2.9 words/s. Speed them to ~3.4-3.7 with `ffmpeg -af atempo=1.18` and trim silence at both ends. Generate one take, not four.
 - One steady narrator, fast, almost no pauses. Loudness about -14 LUFS.
 - Word timings: `whisper-cli -m ggml-base.en.bin -f voice.wav -ojf` (word-level JSON). Fix obvious misreads by hand. Every visual change is timed to a word, landing 0-3 frames before it.
